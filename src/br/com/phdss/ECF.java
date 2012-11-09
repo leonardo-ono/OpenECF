@@ -7,7 +7,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * Classe que representa o ECF no sistema e todas suas funcionalidiades.
@@ -40,7 +40,7 @@ public final class ECF {
      * Expressao ERRO.
      */
     public static final String ERRO = "ERRO";
-    private static Logger log;
+//    private static Logger log;
     private static Socket acbr;
     private static PrintWriter saida = null;
     private static DataInputStream entrada = null;
@@ -59,7 +59,7 @@ public final class ECF {
      * @throws Exception dispara um excecao caso nao cosiga.
      */
     public static void conectar(String servidor, int porta) throws Exception {
-        log = Logger.getLogger(ECF.class);
+        //log = Logger.getLogger(ECF.class);
 
         try {
             InetAddress ip = InetAddress.getByName(servidor);
@@ -71,7 +71,7 @@ public final class ECF {
 
             lerDados();
         } catch (IOException ex) {
-            log.error("Nao foi possivel se conectar ao ACBrMonitor", ex);
+            //log.error("Nao foi possivel se conectar ao ACBrMonitor", ex);
             throw new Exception("Verifique se as configuraõçes estão corretas e se está ativo no sistema.");
         }
     }
@@ -122,7 +122,7 @@ public final class ECF {
                 resp[1] = dados.trim();
             }
         } catch (Exception ex) {
-            log.error("Nao foi possivel enviar ou receber comando ao ECF" + acao.toString(), ex);
+            //log.error("Nao foi possivel enviar ou receber comando ao ECF" + acao.toString(), ex);
             resp[0] = ERRO;
             resp[1] = "Nao foi possivel enviar ou receber comando ao ECF";
         }
